@@ -11,7 +11,7 @@ export default function DownloadPage() {
         </h1>
 
         {/* 다운로드 버튼 */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="mt-16 flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" className="gap-2 min-w-[180px]">
             <a href="/강남키보드.dmg" download>
               <Apple className="w-5 h-5" />
@@ -30,7 +30,7 @@ export default function DownloadPage() {
         <p className="text-muted-foreground text-sm">
           Made by{" "}
           <a
-            href="https://instagram.com/your_username"
+            href="https://instagram.com/p_rjsals"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground hover:underline font-medium"
