@@ -13,13 +13,13 @@ export default function DownloadPage() {
         {/* 다운로드 버튼 */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild size="lg" className="gap-2 min-w-[180px]">
-            <a href="#" download>
+            <a href="/강남키보드.dmg" download>
               <Apple className="w-5 h-5" />
               Mac 다운로드
             </a>
           </Button>
           <Button asChild size="lg" variant="outline" className="gap-2 min-w-[180px]">
-            <a href="#" download>
+            <a href="/강남키보드.exe" download>
               <Monitor className="w-5 h-5" />
               Windows 다운로드
             </a>
