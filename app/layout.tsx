@@ -7,14 +7,14 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://gangnam-keyboard-web.vercel.app'),
+  metadataBase: new URL('https://gangnam-keyboard.vercel.app'),
   title: '강남키보드 다운로드',
   description: '강남에서 온 키보드를 만나보세요.',
   generator: 'Gangnam Keyboard',
   openGraph: {
     title: '강남키보드 다운로드',
     description: '강남에서 온 키보드를 만나보세요.',
-    url: 'https://gangnam-keyboard-web.vercel.app',
+    url: 'https://gangnam-keyboard.vercel.app',
     siteName: '강남키보드',
     locale: 'ko_KR',
     type: 'website',
