@@ -27,6 +27,24 @@ export default function DownloadPage() {
 
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-background px-6 py-10 md:px-10 md:py-14">
+      <aside className="hidden xl:flex fixed left-6 top-1/2 -translate-y-1/2 z-10">
+        <a
+          href="#"
+          className="w-36 h-[560px] rounded-xl border bg-muted/40 hover:bg-muted/60 transition-colors flex items-center justify-center text-xs text-muted-foreground text-center px-3"
+        >
+          좌측 광고 배너
+        </a>
+      </aside>
+
+      <aside className="hidden xl:flex fixed right-6 top-1/2 -translate-y-1/2 z-10">
+        <a
+          href="#"
+          className="w-36 h-[560px] rounded-xl border bg-muted/40 hover:bg-muted/60 transition-colors flex items-center justify-center text-xs text-muted-foreground text-center px-3"
+        >
+          우측 광고 배너
+        </a>
+      </aside>
+
       <div className="text-center space-y-12">
         {/* 제목 */}
         <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight">
