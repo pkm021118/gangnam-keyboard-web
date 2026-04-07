@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/icon-light-32x32.png',
-        width: 32,
-        height: 32,
-        alt: '강남키보드 아이콘',
+        url: '/og-image.png',
+        width: 1024,
+        height: 582,
+        alt: '강남키보드',
       },
     ],
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: '강남키보드 다운로드',
     description: '강남에서 온 키보드를 만나보세요.',
-    images: ['/icon-light-32x32.png'],
+    images: ['/og-image.png'],
   },
   icons: {
     icon: [
