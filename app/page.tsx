@@ -1,28 +1,25 @@
 import { Apple, Monitor } from "lucide-react"
+import { TerminalCommandCopy } from "@/components/terminal-command-copy"
 import { Button } from "@/components/ui/button"
 
 export default function DownloadPage() {
-  const commonIssues = [
-    "소리가 안 나면: 컴퓨터 볼륨/무음 상태와 출력 장치(스피커, 이어폰)가 맞는지 먼저 확인해 주세요.",
-    "설정했는데도 랜덤 소리가 거의 안 들리면: 기능 사용이 켜져 있는지, 전체 재생 확률과 소리별 재생 비율 값이 너무 낮지 않은지 확인해 주세요.",
-    "앱이 멈춘 것 같으면: 앱을 완전히 종료한 뒤 다시 실행해 주세요.",
-    "이어폰/스피커를 바꾼 뒤 소리가 안 나면: 장치 연결 후 앱을 다시 실행해 주세요.",
-    "그래도 해결이 안 되면: 소리 폴더에 사운드 파일이 정상적으로 들어있는지 확인해 주세요.",
+  const windowsIssues: { situation: string; solution: string }[] = [
+    {
+      situation: "실행이 막히면",
+      solution: "윈도우 보안 또는 백신에서 앱이 차단되었는지 확인하고 허용해 주세요.",
+    },
+    {
+      situation: "알 수 없는 게시자 경고가 뜨면",
+      solution: "추가 정보 → 실행을 눌러 진행해 주세요.",
+    },
   ]
 
-  const windowsIssues = [
-    "실행이 막히면: 윈도우 보안 또는 백신에서 앱이 차단되었는지 확인하고 허용해 주세요.",
-    "알 수 없는 게시자 경고가 뜨면: 추가 정보 → 실행을 눌러 진행해 주세요.",
-    "특정 프로그램에서만 반응이 없으면: 해당 프로그램이 관리자 권한으로 실행 중인지 확인하고, 필요하면 앱도 관리자 권한으로 실행해 주세요.",
-    "소리 장치를 바꾼 뒤 문제가 생기면: 기본 출력 장치를 다시 확인하고 앱을 재실행해 주세요.",
-  ]
-
-  const macIssues = [
-    "앱이 손상되었다고 나오면: 파일 문제라기보다 보안 설정 때문에 막힌 경우가 많습니다. 우클릭 → 열기로 실행해 주세요.",
-    "첫 실행이 안 되면: 파인더에서 앱을 우클릭한 뒤 열기를 한 번 진행해 주세요.",
-    "키 입력 감지가 안 되면: 시스템 설정에서 입력 모니터링과 손쉬운 사용 권한을 허용해 주세요.",
-    "재설치 후 갑자기 안 되면: 권한이 다시 필요할 수 있으니 권한을 껐다 켜고 앱을 재실행해 주세요.",
-    "앱 목록에 아이콘이 안 보이면: 설치 후 반영까지 시간이 걸릴 수 있으니 잠시 기다리거나 로그아웃 후 다시 로그인해 주세요.",
+  const macIssues: { situation: string; solution: string }[] = [
+    {
+      situation: "키 입력 감지가 안 되면",
+      solution:
+        "시스템 설정에서 입력 모니터링과 손쉬운 사용 권한을 허용해 주세요.",
+    },
   ]
 
   return (
@@ -69,32 +66,44 @@ export default function DownloadPage() {
 
         {/* OS별 문제 해결 안내 */}
         <section className="text-left max-w-5xl mx-auto space-y-6">
-          <div className="rounded-lg border p-5 space-y-3">
-            <h2 className="text-xl font-semibold">공통 이슈</h2>
-            <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-              {commonIssues.map((issue) => (
-                <li key={issue}>{issue}</li>
-              ))}
-            </ul>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <article className="rounded-lg border p-5 space-y-3">
-              <h3 className="text-lg font-semibold">Windows 안내</h3>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                {windowsIssues.map((issue) => (
-                  <li key={issue}>{issue}</li>
+              <h3 className="text-lg font-semibold">macOS 안내</h3>
+              <ol className="list-decimal pl-5 space-y-3 text-sm text-muted-foreground">
+                <li className="pl-1 space-y-2">
+                  <span className="block font-medium text-foreground">
+                    &quot;앱이 손상되었습니다&quot;가 뜰 때
+                  </span>
+                  <div className="space-y-0.5">
+                    <span className="block">
+                      터미널을 연 다음 아래 명령을 복사해 붙여넣고 Enter를 누릅니다.
+                    </span>
+                    <TerminalCommandCopy />
+                  </div>
+                </li>
+                {macIssues.map((issue) => (
+                  <li key={issue.situation} className="pl-1 space-y-0.5">
+                    <span className="block font-medium text-foreground">
+                      {issue.situation}
+                    </span>
+                    <span className="block">{issue.solution}</span>
+                  </li>
                 ))}
-              </ul>
+              </ol>
             </article>
 
             <article className="rounded-lg border p-5 space-y-3">
-              <h3 className="text-lg font-semibold">macOS 안내</h3>
-              <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                {macIssues.map((issue) => (
-                  <li key={issue}>{issue}</li>
+              <h3 className="text-lg font-semibold">Windows 안내</h3>
+              <ol className="list-decimal pl-5 space-y-3 text-sm text-muted-foreground">
+                {windowsIssues.map((issue) => (
+                  <li key={issue.situation} className="pl-1 space-y-0.5">
+                    <span className="block font-medium text-foreground">
+                      {issue.situation}
+                    </span>
+                    <span className="block">{issue.solution}</span>
+                  </li>
                 ))}
-              </ul>
+              </ol>
             </article>
           </div>
 
