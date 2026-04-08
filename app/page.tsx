@@ -46,50 +46,64 @@ export default function DownloadPage() {
           </Button>
         </div>
 
-        {/* OS별 문제 해결 안내 */}
-        <section className="text-left max-w-5xl mx-auto space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <article className="rounded-lg border p-5 space-y-3">
-              <h3 className="text-lg font-semibold">macOS 안내</h3>
-              <ol className="list-decimal pl-5 space-y-3 text-sm text-muted-foreground">
-                <li className="pl-1 space-y-2">
-                  <span className="block font-medium text-foreground">
-                    &quot;앱이 손상되었습니다&quot;가 뜰 때
-                  </span>
-                  <div className="space-y-0.5">
-                    <span className="block">
-                      터미널을 연 다음 아래 명령을 복사해 붙여넣고 Enter를 누릅니다.
-                    </span>
-                    <TerminalCommandCopy />
-                  </div>
-                </li>
-                {macIssues.map((issue) => (
-                  <li key={issue.situation} className="pl-1 space-y-0.5">
-                    <span className="block font-medium text-foreground">
-                      {issue.situation}
-                    </span>
-                    <span className="block">{issue.solution}</span>
-                  </li>
-                ))}
-              </ol>
-            </article>
+        <div className="max-w-5xl mx-auto w-full space-y-4 text-left">
+          {/* 프로그램 소개 */}
+          <article className="rounded-lg border p-5 space-y-3 text-sm text-muted-foreground leading-relaxed">
+            <h2 className="text-lg font-semibold text-foreground">
+              강남키보드는 어떤 프로그램인가요?
+            </h2>
+            <p>
+              강남키보드는 Mac과 Windows에서 쓰는 <strong className="text-foreground font-medium">데스크톱 앱</strong>입니다. 키보드 입력에 맞춰 직접 넣어 둔 사운드 파일을 재생하는 도구예요.
+            </p>
+            <p>
+              앱 안에서 재생 타이밍이나 비율 같은 설정을 조절할 수 있고, 원하는 소리는 <strong className="text-foreground font-medium">소리 폴더</strong>에 WAV·MP3·OGG 등 지원 형식으로 넣어서 바꿀 수 있습니다.
+            </p>
+          </article>
 
-            <article className="rounded-lg border p-5 space-y-3">
-              <h3 className="text-lg font-semibold">Windows 안내</h3>
-              <ol className="list-decimal pl-5 space-y-3 text-sm text-muted-foreground">
-                {windowsIssues.map((issue) => (
-                  <li key={issue.situation} className="pl-1 space-y-0.5">
+          {/* OS별 문제 해결 안내 */}
+          <section>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <article className="rounded-lg border p-5 space-y-3">
+                <h3 className="text-lg font-semibold">macOS 안내</h3>
+                <ol className="list-decimal pl-5 space-y-3 text-sm text-muted-foreground">
+                  <li className="pl-1 space-y-2">
                     <span className="block font-medium text-foreground">
-                      {issue.situation}
+                      &quot;앱이 손상되었습니다&quot;가 뜰 때
                     </span>
-                    <span className="block">{issue.solution}</span>
+                    <div className="space-y-0.5">
+                      <span className="block">
+                        터미널을 연 다음 아래 명령을 복사해 붙여넣고 Enter를 누릅니다.
+                      </span>
+                      <TerminalCommandCopy />
+                    </div>
                   </li>
-                ))}
-              </ol>
-            </article>
-          </div>
+                  {macIssues.map((issue) => (
+                    <li key={issue.situation} className="pl-1 space-y-0.5">
+                      <span className="block font-medium text-foreground">
+                        {issue.situation}
+                      </span>
+                      <span className="block">{issue.solution}</span>
+                    </li>
+                  ))}
+                </ol>
+              </article>
 
-        </section>
+              <article className="rounded-lg border p-5 space-y-3">
+                <h3 className="text-lg font-semibold">Windows 안내</h3>
+                <ol className="list-decimal pl-5 space-y-3 text-sm text-muted-foreground">
+                  {windowsIssues.map((issue) => (
+                    <li key={issue.situation} className="pl-1 space-y-0.5">
+                      <span className="block font-medium text-foreground">
+                        {issue.situation}
+                      </span>
+                      <span className="block">{issue.solution}</span>
+                    </li>
+                  ))}
+                </ol>
+              </article>
+            </div>
+          </section>
+        </div>
 
         {/* 만든 사람 */}
         <p className="text-muted-foreground text-sm">
